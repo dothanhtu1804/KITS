@@ -42,20 +42,28 @@
       margin-bottom: 70px;
     }
 
+    #add_product table tr{
+      
+    }
+
     #add_product table tr td {
-      margin-right: 20px;
+      padding: 15px 0px;
     }
 
-    td:nth-child(odd) {
+    #add_product table tr td:nth-child(odd) {
       width: 200px;
-      height: 50px;
+      vertical-align: baseline;
     }
 
-    td:nth-child(even) {
+    #add_product table tr td:nth-child(even) {
       width: 450px;
     }
 
-    td button {
+    #add_product table tr td label{
+
+    }
+
+    #add_product table tr td button {
       width: 200px;
       height: 50px;
     }
@@ -139,7 +147,7 @@
             <tr>
               <td></td>
               <td>
-                <input type="radio" name="" id="" value="China" /><label for=""
+                <input type="radio" name="add_product" id="" value="China" /><label for=""
                   >China</label
                 >
               </td>
@@ -147,7 +155,7 @@
             <tr>
               <td></td>
               <td>
-                <input type="radio" name="" id="" value="Vietnam" />
+                <input type="radio" name="add_product" id="" value="Vietnam" />
                 <label for="">Vietnam</label>
               </td>
               <td><button>Create</button></td>
