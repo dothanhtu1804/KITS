@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buoi2 BT2</title>
+  </head>
+  <style>
+    /* style all */
+
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    /* style header */
+
+    header ul {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+    }
+
+    header ul li {
+      list-style-type: none;
+      margin: 0 20px;
+    }
+
+    header ul li a {
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+    }
+
+    /* style section */
+
+    .container .section {
+      background-image: linear-gradient(150deg,#F93E0A,#FA3EC8, #042CF0);
+    }
+
+    .container .section .body_section {
+      text-align: center;
+      padding: 120px 0 70px 0;
+    }
+
+    .container .section .body_section h1 {
+      margin-bottom: 30px;
+    }
+
+    .container .section .body_section p {
+      color: gray;
+    }
+
+    /* style list product */
+
+    .container .list_product .header_list_product {
+      display: flex;
+      justify-content: space-around;
+      padding: 30px 40px 60px 40px;
+      border-bottom: 1px #eeee solid;
+    }
+
+    .container .list_product .header_list_product .header_list_product_left h3 {
+      padding: 10px 0;
+    }
+
+    .container
+      .list_product
+      .header_list_product
+      .header_list_product_right
+      input {
+      padding: 10px 5px;
+      border: 2px solid #eee;
+      border-radius: 5px;
+      color: #eee;
+    }
+
+    .container
+      .list_product
+      .header_list_product
+      .header_list_product_right
+      input[type="submit"] {
+      color: #fff;
+      background-color: rgb(55, 59, 59);
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .container .list_product .body_list_product {
+      width: 70%;
+      margin: 0px auto;
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .container
+      .list_product
+      .body_list_product
+      .background_body_list_product_item {
+      background-image: url(data:image/png;base64,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);
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.6;
+      width: 300px;
+      height: 170px;
+    }
+
+    .container .list_product .body_list_product .body_list_product_item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      color: #0f0a0a;
+      height: 85%;
+    }
+  </style>
+  <body>
+    <header>
+      <ul>
+        <li><a href="">Category 1</a></li>
+        <li><a href="">Category 2</a></li>
+        <li><a href="">Category 3</a></li>
+      </ul>
+    </header>
+    <div class="container">
+      <div class="section">
+        <div class="body_section">
+          <h1>Primary Tagline for Your Blog</h1>
+          <p>Supporting statement for the blog's main tagline.</p>
+        </div>
+      </div>
+      <div class="list_product">
+        <div class="header_list_product">
+          <div class="header_list_product_left">
+            <h3>Subscribe to our newsletter</h3>
+          </div>
+          <div class="header_list_product_right">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+            />
+            <input type="submit" value="Subscribe" />
+          </div>
+        </div>
+        <div class="body_list_product">
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+          <div class="background_body_list_product_item">
+            <div class="body_list_product_item">
+              <h5>november 13,2019</h5>
+              <h3>Enjoy the Little Things</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
