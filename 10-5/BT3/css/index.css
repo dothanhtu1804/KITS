@@ -3,6 +3,10 @@
   margin: 0px;
 }
 
+body{
+  height: 100%;
+}
+
 #admin_page {
   display: flex;
   min-height: 937px;
@@ -18,7 +22,6 @@
   align-items: center;
   background-color: #ffc297;
   padding: 30px 28px;
-  position: fixed;
 }
 
 #admin_page .menu_admin .header_menu_admin ul {
