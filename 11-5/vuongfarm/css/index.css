@@ -9,7 +9,7 @@ body {
 }
 
 .wrapper {
-    padding: 45px 105px;
+    padding: 45px 105px 0 105px;
 }
 
 ul {
@@ -385,7 +385,7 @@ li {
     margin-bottom: 12px;
 }
 
-.categories .wrapper .header_category p {
+.categories .header_category p {
     font-size: 18px;
     font-weight: 500;
     line-height: 27px;
@@ -395,9 +395,11 @@ li {
 
 .categories .body_category {
     background-color: #c1dcdc;
+    margin: 0 -105px;
+    padding: 48px 96px 100px 96px;
 }
 
-.categories .body_category .wrapper .list_image_categories {
+.categories .body_category .list_image_categories {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-between;
@@ -405,15 +407,15 @@ li {
     margin-bottom: 24px;
 }
 
-.categories .body_category .wrapper .list_image_categories .custom_image_category {
+.categories .body_category .list_image_categories .custom_image_category {
     transform: translateY(-96px);
 }
 
-.categories .body_category .wrapper .list_image_categories .image_category {
+.categories .body_category .list_image_categories .image_category {
     width: 352px;
 }
 
-.categories .body_category .wrapper .list_image_categories .image_category h5 {
+.categories .body_category .list_image_categories .image_category h5 {
     font-size: 18px;
     font-weight: 700;
     line-height: 27px;
@@ -422,7 +424,7 @@ li {
     margin-bottom: 12px;
 }
 
-.categories .body_category .wrapper .list_image_categories .image_category p {
+.categories .body_category .list_image_categories .image_category p {
     font-size: 18px;
     font-weight: 500;
     line-height: 27px;
@@ -430,12 +432,12 @@ li {
     color: #1e1e1e80;
 }
 
-.categories .body_category .wrapper .btn_explore {
+.categories .body_category .btn_explore {
     display: flex;
     justify-content: center;
 }
 
-.categories .body_category .wrapper .btn_explore button {
+.categories .body_category .btn_explore button {
     display: flex;
     align-items: center;
     padding: 12px 24px;
@@ -445,7 +447,7 @@ li {
     border-radius: 8px;
 }
 
-.categories .body_category .wrapper .btn_explore button p {
+.categories .body_category .btn_explore button p {
     font-size: 18px;
     font-weight: 500;
     line-height: 27px;
@@ -455,6 +457,7 @@ li {
 
 .customers_say {
     padding: 96px 96px 78px 96px;
+    margin: 0px -96px;
 }
 
 .customers_say .header_customers_say h1 {
@@ -467,7 +470,7 @@ li {
 .customers_say .body_customers_say {
     display: flex;
     overflow-x: scroll;
-    gap: 48px;
+    gap: 4vw;
 }
 
 .customers_say .body_customers_say::-webkit-scrollbar-track {
@@ -495,7 +498,6 @@ li {
 }
 
 .customers_say .body_customers_say .customers_say_item {
-    min-width: 735px;
     min-height: 330px;
     background-color: #c1dcdc;
     border-radius: 12px;
@@ -503,6 +505,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 37vw;
 }
 
 .customers_say .body_customers_say .customers_say_item p {
@@ -534,9 +537,10 @@ li {
 
 footer {
     background-color: #C1DCDC;
-    padding: 48px 96px 71px 96px;
     min-height: 423px;
     display: flex;
+    margin: 0px -105px;
+    padding: 48px 96px 71px 96px;
 }
 
 footer .left_footer {
