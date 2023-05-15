@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <style>
+    #my_div {
+      width: 573px;
+      height: 70px;
+      margin: 0px auto;
+      border: 5px solid pink;
+      outline: 5px solid yellow;
+      border-radius: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .background_color::before {
+      position: absolute;
+      content: "";
+      border: 5px solid dodgerblue;
+      outline: 5px solid gray;
+      border-radius: 35px;
+      width: 553px;
+      height: 51px;
+      background: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSj3XfIpf-OOJRCcWz4iN2CU3qMKVVbj0p0bRvKNGVo1U9pk_8ZIlyR8pWreA);
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 40px;
+      background-position-x: 500px;
+    }
+
+    .background_color::after {
+      position: absolute;
+      content: "";
+      border: 5px solid red;
+      outline: 5px solid black;
+      border-radius: 35px;
+      width: 534px;
+      height: 32px;
+      background: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSj3XfIpf-OOJRCcWz4iN2CU3qMKVVbj0p0bRvKNGVo1U9pk_8ZIlyR8pWreA);
+      background-size: 40px;
+      background-repeat: no-repeat;
+      background-position-y: -2px;
+    }
+  </style>
+  <body>
+    <div id="my_div" class="background_color icon">Bai Tap CSS</div>
+  </body>
+</html>
