@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="introduce">Hello World</div>
+    <div id="introduce">I am Devera</div>
+    <div id="myName">My Name</div>
+    <button onclick="changeName()">Change</button>
+    <form action="" onsubmit="getData()">
+      <input type="text" name="name" id="name" />
+      <input type="submit" value="submit" />
+    </form>
+
+    <p>Select a new car from the list.</p>
+    <select name="mySelect" id="mySelect" onchange="myFunction()">
+      <option value="Audi">Audi</option>
+      <option value="BMW">BMW</option>
+      <option value="Mercedes">Mercedes</option>
+      <option value="Volvo">Volvo</option>
+    </select>
+    <input
+      type="text"
+      name="changeTextColor"
+      id="changeTextColor"
+      onchange="changeTextColor()"
+    />
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tenetur
+      quisquam excepturi cupiditate sunt ab quaerat modi enim illo animi.
+    </p>
+    <div id="demo"></div>
+    <!-- <p></p> -->
+    <script>
+      // document.querySelector(".introduce").style.color = "blue";  // đổi màu class introduce
+      // document.getElementById("introduce").style.color = "red";   // đổi màu id introduce
+      // const para = document.createElement("p");                   //tạo phần tử <p>
+      // document.body.appendChild(para);                            //đặt phần tử <p> vào sau thẻ <body>
+      // document.querySelector("p").innerText = "code js";          //thêm đoạn text vào phần tử <p>
+      // function changeName(){
+      //     const myName = document.getElementById("myName");
+      //     console.log(myName);
+      //     myName.innerText = "Đỗ Tú";
+      // }
+
+      // function getData(){
+      //     const name = document.getElementById("name").value;
+      //     console.log(name);
+      // }
+
+      // function myFunction(){
+      //     var x = document.getElementById("mySelect").value;
+      //     document.getElementById("demo").innerHTML = "You selected: " + x;
+      // }
+
+      // function changeTextColor(){
+      //     var x = document.getElementById("changeTextColor");
+      //     x.style.color = "red";
+      // }
+
+      const students = [
+        "Vy",
+        "Khuong",
+        "Quynh Anh",
+        "Nhat Anh",
+        "Tien Anh",
+        "Duc Anh",
+      ];
+      console.log(students.length);
+      // vi tri cua nhat anh
+      const vitri = students.indexOf("Nhat Anh");
+      console.log(`vi tri index cua Nhat Anh la ${vitri}`);
+      // xoa phan tu dau tien
+      const deleteIndex1 = students.splice(0, 1);
+      console.log(deleteIndex1);
+      // nối mảng bằng dấu gạch chân
+      const splitArray = students.join("_");
+      console.log(splitArray);
+      console.log(students);
+      const deleteIndex2 = students.splice(students.indexOf("Quynh Anh"), 1);
+      const students2 = ["Sơn Anh", "Phước"];
+
+      console.log(students.concat(students2));
+
+      console.log(Math.round(Math.random() * 100 + 1));
+    </script>
+  </body>
+</html>
