@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        eyeColor: "blue",
+      };
+      console.log(Object.entries(person));
+      console.log(Object.values(person));
+
+      let txt = "DEVERA";
+      let length = txt.length;
+      console.log(txt.slice(2, 6));
+
+      let originalString = "ABCDevXYZ";
+      lengthOriginalString = originalString.length;
+      console.log("Do dai cua chuoi: " + lengthOriginalString);
+      sliceString = originalString.slice(8, 11);
+      console.log("Cat chu vs ham slice " + sliceString);
+      convertString = originalString.replaceAll(" ", ",");
+      convertString = originalString.split(" ");
+      console.log(convertString);
+      function checkArray(array, word) {
+        return (check = array.includes(word)
+          ? console.log("oke")
+          : console.log("ko co"));
+      }
+
+      checkArray(originalString, "Dev");
+
+      function checkNumber(n) {
+        // Biến cờ hiệu
+        var flag = true;
+
+        // Nếu n bé hơn 2 tức là không phải số nguyên tố
+        if (n < 2) {
+          flag = false;
+        } else {
+          // lặp từ 2 tới n-1
+          for (var i = 2; i < n - 1; i++) {
+            if (n % i == 0) {
+              flag = false;
+              break;
+            }
+          }
+        }
+
+        // Kiểm tra biến flag
+        if (flag == true) {
+          document.write(n + " là số nguyên tố <br/>");
+        } else {
+          document.write(n + " không phải là số nguyên tố <br/>");
+        }
+      }
+
+      checkNumber(6);
+
+
+      function calcu_expression(n){
+        if(n > 0){
+            let expres = 0;
+            for (let index = 1; index <= n; index++) {
+                expres += index/n;
+            }
+        }else{
+            console.log("Khong hop le");
+        }
+      }
+
+      calcu_expression(4);
+      
+    </script>
+  </body>
+</html>
