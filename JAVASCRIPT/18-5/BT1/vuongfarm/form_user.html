@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buoi2 BT3</title>
     <link rel="stylesheet" href="./css/form_user.css" />
-    <script src="./js/form_user.js"></script>
   </head>
   <body>
     <div id="admin_page">
@@ -22,7 +21,7 @@
               /></a>
             </li>
             <li>
-              <a onclick="hiddenSidebar()"
+              <a href="./index.html"
                 ><img src="./images/form_user/Home.svg" alt=""
               /></a>
             </li>
@@ -101,7 +100,7 @@
           </div>
         </div>
         <div class="body_detail_section">
-          <form action="">
+          <form name="user">
             <div class="form_detail_section">
               <div class="form_name">
                 <div class="form_item">
@@ -112,6 +111,7 @@
                     id="first_name"
                     placeholder="Luan"
                   />
+                  <small></small>
                 </div>
                 <div class="form_item">
                   <label for="">Last Name</label>
@@ -121,6 +121,7 @@
                     id="last_name"
                     placeholder="Vuong"
                   />
+                  <small></small>
                 </div>
               </div>
               <div class="form_email">
@@ -132,6 +133,7 @@
                     id="email"
                     placeholder="example@gmail.com"
                   />
+                  <small></small>
                   <input type="checkbox" name="" id="" />
                 </div>
               </div>
@@ -144,6 +146,7 @@
                     id="address"
                     placeholder="33062 Zboncak isle"
                   />
+                  <small></small>
                 </div>
               </div>
               <div class="form_telephone">
@@ -155,25 +158,33 @@
                     id="telephone"
                     placeholder="58077.79"
                   />
+                  <small></small>
                 </div>
               </div>
               <div class="form_city">
                 <div class="form_item">
                   <label for="">City</label>
                   <select name="city" id="city">
+                    <option value="">Chọn thành phố</option>
                     <option value="HCM">Hồ Chí Minh</option>
                   </select>
+                  <small></small>
                 </div>
               </div>
               <div class="form_button">
                 <input type="reset" value="Cancel" class="btn_cancel" />
-                <input type="submit" value="Save" id="btn_submit" />
+                <input
+                  type="btn"
+                  value="Save"
+                  id="btn_submit"
+                  onclick="check_form()"
+                />
               </div>
             </div>
           </form>
         </div>
       </div>
     </div>
-    <!-- <script src="./js/index.js"></script> -->
+    <script src="./js/form_user.js"></script>
   </body>
 </html>

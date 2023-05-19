@@ -1,11 +1,8 @@
 if (localStorage.getItem("token") !== null) {
   document
     .getElementsByClassName("right_product_list")
-    .addEventListener("load", fetchDataSingle(1));
+    .addEventListener("load", fetchData());
 
-  fetch("https://fakestoreapi.com/products/${id}")
-    .then((res) => res.json())
-    .then((json) => console.log(json));
 
   async function fetchDataSingle(id) {
     const product = await fetch(`https://fakestoreapi.com/products/${id}`).then(
@@ -51,19 +48,19 @@ if (localStorage.getItem("token") !== null) {
     }
   }
 
-  function goToDetail(id) {
+  function goToDetail() {
+    console.log("click");
+    console.log(id);
     document
       .querySelector(".product_list")
       .addEventListener("load", fetchDataSingle(id));
-    window.location.assign(`detail_product.html?id=${id}`);
+    window.location.replace(`detail_product.html?id=${id}`);
   }
 
-  function logout(){
-    window.localStorage.removeItem('token');
-    window.location.replace("./login.html");
+  function logout() {
+    window.localStorage.removeItem("token");
+    window.location.replace("../detail_product.html");
   }
-
-  
-}else{
+} else {
   window.location.replace("./login.html");
 }
