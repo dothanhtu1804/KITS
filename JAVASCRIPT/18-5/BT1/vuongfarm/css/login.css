@@ -185,3 +185,20 @@ body {
     bottom: 62px;
     right: 90px;
 }
+
+/* responsive */
+
+@media screen and (max-width: 1200px) {
+    #login{
+        justify-content: center;
+    }
+
+    .container_login{
+        width: auto;
+        padding: 136px 88px 62px 88px;
+    }
+
+    .right_login{
+      display: none;
+    }
+  }

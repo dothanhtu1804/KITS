@@ -21,10 +21,9 @@ function login() {
       }
       // parse response data
       response.json().then(data => {
-        console.log(data.token);
         if(data.token != null || data.token != undefined || data.token != ""){
             localStorage.setItem('token', data.token)
-            window.location.replace("./index.html");
+            window.location.replace("./form_user.html");
         }
       })
     }
