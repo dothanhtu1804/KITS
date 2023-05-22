@@ -5,9 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/detail_product.css">
 </head>
 <body>
-    <div class="product_list"></div>
+    <div id="container">
+        <header>
+            <div class="left_header">
+                <div class="logo">
+                    <h1>LuanShop</h1>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <li><a href="#">Sales</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">About</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">More <img src="./images/detail_product/down-arrow 1.svg" alt=""></a>
+                            <div class="dropdown-content">
+                              <a href="#">Link 1</a>
+                              <a href="#">Link 2</a>
+                              <a href="#">Link 3</a>
+                            </div>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right_header">
+                <div class="form_search">
+                    <input type="search" placeholder="Search...">
+                    <img src="./images/detail_product/search.svg" alt="">
+                </div>
+                <div class="cart">
+                    <img src="./images/detail_product/shopping-bag.svg" alt="">
+                    <span>0</span>
+                </div>
+                <div class="user_account">
+                    <img src="./images/detail_product/user_account.svg" alt="">
+                </div>
+            </div>
+        </header>
+        <div class="product_list"></div>
+    </div>
+    <script src="./js/detail_product.js"></script>
 </body>
 </html>

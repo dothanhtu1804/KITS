@@ -1,8 +1,7 @@
 if (localStorage.getItem("token") !== null) {
   document
-    .getElementsByClassName("right_product_list")
+    .querySelector(".right_product_list")
     .addEventListener("load", fetchData());
-
 
   async function fetchDataSingle(id) {
     const product = await fetch(`https://fakestoreapi.com/products/${id}`).then(
@@ -48,7 +47,7 @@ if (localStorage.getItem("token") !== null) {
     }
   }
 
-  function goToDetail() {
+  function goToDetail(id) {
     console.log("click");
     console.log(id);
     document

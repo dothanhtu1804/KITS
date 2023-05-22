@@ -132,6 +132,7 @@ if (localStorage.getItem("token") !== null) {
     const error = formField.querySelector("small");
     error.textContent = '';
   }
+  
 } else {
   window.location.replace("./login.html");
 }
