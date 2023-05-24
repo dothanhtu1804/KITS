@@ -1,15 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import {
-  HelloWorld,
-  HelloWorld2,
-  HelloWorld3,
-  HelloWorld4,
-} from "./components/demo";
-import { Counter, Counter2 } from "./components/counter";
-import styled from "styled-components";
-import { Button } from "components/button/Button";
-import { Card } from "components/Card/Card";
+import { Route, Routes } from "react-router-dom";
+import styled  from 'styled-components';
+import { Home } from "containers/home";
+import { Login } from "containers/login";
+import { About } from "containers/about";
+import { Not_found } from "containers/404";
+import Sidebar from "components/sidebar";
+// import { Card } from "components/Card";
 // import { Demo } from './components/demo';
 // import { Demo1 } from './components/demo1';
 
@@ -34,16 +32,23 @@ const AppWrapper = styled.div`
 `;
 function App() {
   return (
-    <AppWrapper>
-      <header className="App-header">
-        <div className="list_card">
-          <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
-          <Card title={"Spending"} amount="2.00" percent={11}></Card>
-          <Card title={"ROI"} content={14.02} percent={-12.3}></Card>
-          <Card title={"Estimated"} amount="38.00" percent={0}></Card>
-        </div>
-      </header>
-    </AppWrapper>
+    // <AppWrapper>
+    //   <header className="App-header">
+    //     <div className="list_card">
+    //       <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
+    //       <Card title={"Spending"} amount="2.00" percent={11}></Card>
+    //       <Card title={"ROI"} content={14.02} percent={-12.3}></Card>
+    //       <Card title={"Estimated"} amount="38.00" percent={0}></Card>
+    //     </div>
+    //   </header>
+    // </AppWrapper>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/sidebar" element={<Sidebar/>}/>
+      <Route path="*" element={<Not_found/>}/>
+    </Routes>
   );
 }
 

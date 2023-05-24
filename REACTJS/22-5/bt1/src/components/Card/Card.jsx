@@ -3,8 +3,10 @@ import { Button } from "../button";
 import ethIcon from "assets/card/eth_icon.svg";
 
 const StyledCard = styled.div`
+  width: ${(props) => `${props.width}px`};
+  height: ${(props) => `${props.height}px`};
   padding: 24px;
-  background-color: white;
+  background: ${(props) => props.background};
   border-radius: 20px;
   font-size: 12px;
   line-height: 16px;
@@ -44,9 +46,15 @@ const StyledCard = styled.div`
     color: #27262e;
   }
 `;
-export const Card = ({ title, amount, content, percent }) => {
+export const Card = ({ width, height, height_sidebar, background, title, amount, content, percent,sidebar ,...rest }) => {
   return (
-    <StyledCard>
+    <StyledCard
+    percent={percent}
+    width={width}
+    height={height}
+    background={background}
+    {...rest}
+    >
       <div className="title">{title}</div>
       {amount ? (
         <div className="ammount-wrapper">
@@ -58,9 +66,16 @@ export const Card = ({ title, amount, content, percent }) => {
           <span>+{content}</span> %
         </div>
       )}
-      <Button percent={percent} boderColor="#E9E9E9">
-        {Math.abs(percent)}%
+      <Button percent={percent} sidebar={sidebar} height_sidebar={height_sidebar} boderColor="#E9E9E9">
+        {typeof percent === 'string' ? percent : Math.abs(percent)+"%"}
       </Button>
     </StyledCard>
   );
+};
+Card.defaultProps = {
+  padding: "24px",
+  background: "white",
+  border_radius: "20px",
+  font_size: "12px",
+  line_height: "16px",
 };
