@@ -1,45 +1,70 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
+import React from 'react'
 import SidebarListItem from "./SidebarListItem";
-import dashboard from "../../assets/sidebar/dashboard.svg";
-// import SidebarListItem from "./SidebarListItem";
+import 'font-awesome/css/font-awesome.min.css'
+import { ToggleButton } from "components/button";
 
 const SidebarListStyled = styled.div``;
-// const SidebarListItemStyled = styled.div``;
-// const SidebarListItem = ({ url, icon, name }) => {
-//   return (
-//     <SidebarListItemStyled url={url} icon={icon} name={name}>
-//       <NavLink to={url}>
-//         <FontAwesomeIcon icon={icon} />
-//         {name}
-//       </NavLink>
-//     </SidebarListItemStyled>
-//   );
-// };
 
 const SidebarList = () => {
   return (
     <SidebarListStyled>
+      <div className="body_list_sidebar">
+        <SidebarListItem
+          url={"/"}
+          icon={"fa fa-th-large"}
+          name={"Dashboard"}
+        ></SidebarListItem>
+        <SidebarListItem
+          url={"/"}
+          icon={"fa fa-shopping-bag"}
+          name={"Market"}
+        ></SidebarListItem>
+        <SidebarListItem
+          url={"/"}
+          icon={"fa fa-balance-scale"}
+          name={"Active Bids"}
+        ></SidebarListItem>
+      </div>
       <div className="title_list_sidebar">
         <h5>Profile</h5>
       </div>
       <div className="body_list_sidebar">
         <SidebarListItem
           url={"/"}
-          url_image={dashboard}
-          name={"Dashboard"}
+          icon={"fa fa-info-circle"}
+          name={"My Portfolio"}
         ></SidebarListItem>
         <SidebarListItem
           url={"/"}
-          url_image={dashboard}
-          name={"Dashboard"}
+          icon={"fa fa-book"}
+          name={"Wallet"}
         ></SidebarListItem>
         <SidebarListItem
           url={"/"}
-          url_image={dashboard}
-          name={"Dashboard"}
+          icon={"fa fa-heart"}
+          name={"Favourites"}
         ></SidebarListItem>
+        <SidebarListItem
+          url={"/"}
+          icon={"fa fa-clock-o"}
+          name={"History"}
+        ></SidebarListItem>
+        <SidebarListItem
+          url={"/"}
+          icon={"fa fa-cog"}
+          name={"Settings"}
+        ></SidebarListItem>
+      </div>
+      <div className="title_list_sidebar">
+        <h5>Profile</h5>
+      </div>
+      <div className="body_list_sidebar">
+      <SidebarListItem
+          url={"/"}
+          icon={"fa fa-moon-o"}
+          name={"Settings"}
+        >{ToggleButton}</SidebarListItem>
       </div>
     </SidebarListStyled>
   );

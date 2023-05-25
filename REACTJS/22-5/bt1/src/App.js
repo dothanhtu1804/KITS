@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import 'font-awesome/css/font-awesome.min.css';
 import { Route, Routes } from "react-router-dom";
 import styled  from 'styled-components';
 import { Home } from "containers/home";

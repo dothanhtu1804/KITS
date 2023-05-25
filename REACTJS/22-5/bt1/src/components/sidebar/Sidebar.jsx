@@ -5,9 +5,10 @@ import SidebarList from "./SidebarList";
 import SidebarListItem from "./SidebarListItem";
 
 
+
 const SidebarStyled = styled.div`
-  height: 100vh;
-  background-color: tomato;
+  height: auto;
+  background-color: #fffff;
   padding: 32px;
 
   .header_sidebar {
@@ -49,9 +50,7 @@ const Sidebar = () => {
               </div>
             </div>
             <div className="body_sidebar">
-              <SidebarList>
-                {/* <SidebarListItem url={"#"} icon={"faGrid2"} name={"Dashboard"}></SidebarListItem> */}
-              </SidebarList>
+              <SidebarList></SidebarList>
             </div>
             <div className="footer_sidebar">
                 <CardSidebar width={228} height={184} title ={"Your Balance"} amount={"1,034.02"} percent={"Top Up Balance"}></CardSidebar>

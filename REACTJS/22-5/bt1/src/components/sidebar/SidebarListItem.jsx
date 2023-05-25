@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+
 const SidebarListItemStyled = styled.div`
 
 
@@ -17,11 +18,11 @@ const SidebarListItemStyled = styled.div`
   }
 `;
 
-const SidebarListItem = ({ url, url_image, name }) => {
+const SidebarListItem = ({ url, icon, name }) => {
   return (
     <SidebarListItemStyled>
-      <NavLink to={url}>
-        <img src={url_image} alt="" />
+      <NavLink to={url} >
+        <i className={icon}></i>
         {name}
       </NavLink>
     </SidebarListItemStyled>
