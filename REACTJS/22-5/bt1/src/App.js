@@ -6,10 +6,7 @@ import { Home } from "containers/home";
 import { Login } from "containers/login";
 import { About } from "containers/about";
 import { Not_found } from "containers/404";
-import Sidebar from "components/sidebar";
-// import { Card } from "components/Card";
-// import { Demo } from './components/demo';
-// import { Demo1 } from './components/demo1';
+import Sidebar from "components/sidebar/Sidebar";
 
 const AppWrapper = styled.div`
   text-align: center;

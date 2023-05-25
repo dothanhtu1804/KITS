@@ -46,7 +46,7 @@ const StyledCard = styled.div`
     color: #27262e;
   }
 `;
-export const Card = ({ width, height, height_sidebar, background, title, amount, content, percent,sidebar ,...rest }) => {
+const Card = ({ width, height, background, title, amount, content, percent,...rest }) => {
   return (
     <StyledCard
     percent={percent}
@@ -66,7 +66,7 @@ export const Card = ({ width, height, height_sidebar, background, title, amount,
           <span>+{content}</span> %
         </div>
       )}
-      <Button percent={percent} sidebar={sidebar} height_sidebar={height_sidebar} boderColor="#E9E9E9">
+      <Button percent={percent}  boderColor="#E9E9E9">
         {typeof percent === 'string' ? percent : Math.abs(percent)+"%"}
       </Button>
     </StyledCard>
@@ -79,3 +79,5 @@ Card.defaultProps = {
   font_size: "12px",
   line_height: "16px",
 };
+
+export default Card;

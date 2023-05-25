@@ -1,24 +1,14 @@
 import styled from "styled-components";
-import Card from "components/Card";
+import CardSidebar from "components/Card/CardSidebar";
 import logo from "../../assets/sidebar/logo.svg";
+import SidebarList from "./SidebarList";
+import SidebarListItem from "./SidebarListItem";
+
 
 const SidebarStyled = styled.div`
-  #sidebar {
-    display: flex;
-  }
-
-  .sidebar_left {
-    background-color: tomato;
-  }
-
-  .sidebar_right {
-    width: 100%;
-    background-color: chocolate;
-  }
-
-  .sidebar {
-    padding: 32px;
-  }
+  height: 100vh;
+  background-color: tomato;
+  padding: 32px;
 
   .header_sidebar {
     display: flex;
@@ -49,7 +39,6 @@ const SidebarStyled = styled.div`
 const Sidebar = () => {
   return (
     <SidebarStyled>
-      <div id="sidebar">
         <div className="sidebar_left">
           <div className="sidebar">
             <div className="header_sidebar">
@@ -60,15 +49,15 @@ const Sidebar = () => {
               </div>
             </div>
             <div className="body_sidebar">
-
+              <SidebarList>
+                {/* <SidebarListItem url={"#"} icon={"faGrid2"} name={"Dashboard"}></SidebarListItem> */}
+              </SidebarList>
             </div>
             <div className="footer_sidebar">
-                <Card width={228} height={220} height_sidebar={50} sidebar ={true}  background={"linear-gradient(228.89deg, #5429FF 1.12%, #BBAAFF 100%)"} title ={"Your Balance"} content={"1,034.02"} percent={"Top Up Balance"}></Card>
+                <CardSidebar width={228} height={184} title ={"Your Balance"} amount={"1,034.02"} percent={"Top Up Balance"}></CardSidebar>
             </div>
           </div>
         </div>
-        <div className="sidebar_right"></div>
-      </div>
     </SidebarStyled>
   );
 };

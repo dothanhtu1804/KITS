@@ -8,7 +8,7 @@ import {
 } from "../../components/demo";
 import { Counter, Counter2 } from "../../components/counter";
 import { Button } from "../../components/button";
-import { Card } from "../../components/Card";
+import Card from "../../components/Card";
 import { Link } from 'react-router-dom';
 import { PrimaryLayout } from 'components/Layout';
 
@@ -42,10 +42,10 @@ const Home = () => {
             <Link to="/login">Login</Link>
         </nav>
           <div className="card-wrapper">
-            <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
+            {/* <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
             <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
             <Card title={"Revenue"} amount="4.02" percent={12.3}></Card>
-            <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
+            <Card title={"Revenue"} amount="5.00" percent={12.3}></Card> */}
           </div>
         </header>
       </AppWrapper>

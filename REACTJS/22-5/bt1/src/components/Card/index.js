@@ -1,3 +1,3 @@
-import { Card } from "./Card";
-export default Card;
-export { Card }
+import Card from "./Card";
+import CardSidebar from "./CardSidebar";
+export default { Card, CardSidebar }

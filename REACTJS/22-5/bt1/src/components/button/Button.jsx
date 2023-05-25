@@ -4,7 +4,7 @@ import redArrow from "../../assets/button/red_arrow.svg";
 import Sidebar from "components/sidebar";
 
 const StyledButton = styled.button`
-  width: ${(props) => props.width ? `${props.width}` : "100%"};
+  width: ${(props) => (props.width ? `${props.width}` : "100%")};
   height: ${(props) => `${props.height}`};
   border: ${(props) =>
     props.boderColor ? `1px solid ${props.boderColor}` : "none"};
@@ -18,20 +18,23 @@ const StyledButton = styled.button`
     margin-right: 8px;
   }
 
-  .button_sidebar{
-    display:flex;
+  .button_sidebar {
+    display: flex;
     justify-content: space-between;
     padding: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    color: #27262e;
   }
 
-  .button_sidebar span{
-    background-color:#5429FF;
+  .button_sidebar span {
+    background-color: #5429ff;
     width: 20px;
     border-radius: 50px;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 `;
-
 
 export const Button = ({
   width,

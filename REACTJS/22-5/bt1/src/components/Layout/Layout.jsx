@@ -1,11 +1,10 @@
 import Header from "components/header";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Sidebar from "components/sidebar";
+import Sidebar from "components/sidebar/Sidebar";
 
 const LayoutStyled = styled.div`
-  background-color: #1c233d;
-  min-height: 100vh;
+display: flex;
   .right {
     float: right;
     width: 80%;
@@ -26,21 +25,9 @@ const SideBarStyled = styled.div`
 const PrimaryLayout = ({ children }) => {
   return (
     <LayoutStyled>
-      <SideBarStyled>
-        <Link to="/" >
-          Dashboard
-        </Link>
-        <Link to="/about">
-          About
-        </Link>
-        <Link to="/login">
-          Login
-        </Link>
-      </SideBarStyled>
-      <Sidebar></Sidebar>
+      <Sidebar/>
       <div className="right">
         <Header />
-        <ContentStyled>{children}</ContentStyled>
       </div>
     </LayoutStyled>
   );

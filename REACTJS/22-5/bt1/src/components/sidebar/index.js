@@ -1,3 +1,6 @@
 import Sidebar from "./Sidebar";
-export default Sidebar;
-export { Sidebar };
+import SidebarList from "./SidebarList";
+import SidebarListItem from "./SidebarListItem";
+
+export default {Sidebar,SidebarList,SidebarListItem};
+
