@@ -46,7 +46,7 @@ const StyledCard = styled.div`
     color: #27262e;
   }
 `;
-const Card = ({ width, height, background, title, amount, content, percent,...rest }) => {
+export const Card = ({ width, height, background, title, amount, content, percent,...rest }) => {
   return (
     <StyledCard
     percent={percent}
@@ -79,5 +79,3 @@ Card.defaultProps = {
   font_size: "12px",
   line_height: "16px",
 };
-
-export default Card;

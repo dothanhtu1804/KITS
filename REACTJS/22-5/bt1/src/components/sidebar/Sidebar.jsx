@@ -1,14 +1,13 @@
 import styled from "styled-components";
-import CardSidebar from "components/Card/CardSidebar";
+import { CardSidebar } from "components/Card/CardSidebar";
 import logo from "../../assets/sidebar/logo.svg";
 import SidebarList from "./SidebarList";
-import SidebarListItem from "./SidebarListItem";
 
 
 
 const SidebarStyled = styled.div`
   height: auto;
-  background-color: #fffff;
+  background-color: #ffffff;
   padding: 32px;
 
   .header_sidebar {
@@ -35,6 +34,10 @@ const SidebarStyled = styled.div`
     font-weight: 700;
     line-height: 13px;
     color: #7a797d;
+  }
+
+  .body_sidebar{
+    margin-bottom: 95px;
   }
 `;
 const Sidebar = () => {

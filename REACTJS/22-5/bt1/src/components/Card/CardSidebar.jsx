@@ -74,7 +74,7 @@ const StyledCard = styled.div`
     top:41px;
   }
 `;
-const CardSidebar = ({
+export const CardSidebar = ({
   width,
   height,
   title,
@@ -106,4 +106,4 @@ const CardSidebar = ({
   );
 };
 
-export default CardSidebar;
+

@@ -14,6 +14,8 @@ const StyledButton = styled.button`
   line-height: 21px;
   color: ${(props) => props.textColor};
   font-size: ${(props) => props.fontSize};
+  margin-right: ${(props) => props.mr ? `${props.mr}` : "unset"};
+  
   img {
     margin-right: 8px;
   }
@@ -45,6 +47,7 @@ export const Button = ({
   percent,
   fontSize,
   sidebar,
+  content,
   children,
   ...rest
 }) => {
@@ -66,30 +69,46 @@ export const Button = ({
           {children}
         </StyledButton>
       );
+    } else if (typeof content !== "undefined") {
+      return (
+        <StyledButton
+          width={width}
+          height={height}
+          textColor={textColor}
+          bgColor={bgColor}
+          boderColor={boderColor}
+          fontSize={fontSize}
+          content={content}
+          {...rest}
+        >
+          {content}
+        </StyledButton>
+      );
     }
+  } else {
+    return (
+      <StyledButton
+        percent={percent}
+        width={width}
+        height={height}
+        textColor={textColor}
+        bgColor={bgColor}
+        boderColor={boderColor}
+        fontSize={fontSize}
+        {...rest}
+      >
+        <div className="button_sidebar">
+          <span>+</span>
+          {children}
+          <div>></div>
+        </div>
+      </StyledButton>
+    );
   }
-  return (
-    <StyledButton
-      percent={percent}
-      width={width}
-      height={height}
-      textColor={textColor}
-      bgColor={bgColor}
-      boderColor={boderColor}
-      fontSize={fontSize}
-      {...rest}
-    >
-      <div className="button_sidebar">
-        <span>+</span>
-        {children}
-        <div>></div>
-      </div>
-    </StyledButton>
-  );
 };
 Button.defaultProps = {
   bgColor: "#FFFFFF",
   textColor: "#5429FF",
   height: 46,
-  fontSize: 16,
+  fontSize: "16px",
 };

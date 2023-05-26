@@ -1,10 +1,16 @@
 import styled from "styled-components";
-import React from 'react'
+import React from "react";
 import SidebarListItem from "./SidebarListItem";
-import 'font-awesome/css/font-awesome.min.css'
+import "font-awesome/css/font-awesome.min.css";
 import { ToggleButton } from "components/button";
 
-const SidebarListStyled = styled.div``;
+const SidebarListStyled = styled.div`
+  .sidebar_list_mode{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
 
 const SidebarList = () => {
   return (
@@ -60,11 +66,14 @@ const SidebarList = () => {
         <h5>Profile</h5>
       </div>
       <div className="body_list_sidebar">
-      <SidebarListItem
-          url={"/"}
-          icon={"fa fa-moon-o"}
-          name={"Settings"}
-        >{ToggleButton}</SidebarListItem>
+        <div className="sidebar_list_mode">
+          <SidebarListItem
+            url={"/"}
+            icon={"fa fa-moon-o"}
+            name={"Settings"}
+          ></SidebarListItem>
+          <ToggleButton></ToggleButton>
+        </div>
       </div>
     </SidebarListStyled>
   );
