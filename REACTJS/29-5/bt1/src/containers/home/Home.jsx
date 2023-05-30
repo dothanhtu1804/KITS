@@ -1,13 +1,36 @@
 import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, Row, theme } from "antd";
-import { DashboardOutlined } from "@ant-design/icons";
+  Switch,
+  Breadcrumb,
+  Layout,
+  Menu,
+  Row,
+  theme,
+  Col,
+  Divider,
+  Typography,
+  Card,
+  Statistic,
+  Space,
+  Tabs,
+} from "antd";
 import React from "react";
 import logo from "assets/admin/images.png";
 import styled from "styled-components";
+import {
+  DashboardOutlined,
+  UsergroupAddOutlined,
+  AppstoreOutlined,
+  BarsOutlined,
+  AccountBookOutlined,
+  UserOutlined,
+  InfoCircleOutlined,
+  ArrowDownOutlined,
+  ArrowUpOutlined,
+} from "@ant-design/icons";
+import { useState } from "react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import Dashboard from "containers/dashboard";
+import { navigate } from "@reach/router";
 
 const LogoStyled = styled.div`
   .demo-logo {
@@ -34,92 +57,94 @@ const items1 = ["1", "2", "3"].map((key) => ({
   label: `nav ${key}`,
 }));
 
-// const ListMenu= ["Dashboard", "User", "Customer", "Orders", "Coupon"];
+const { Title, Text, Link } = Typography;
 
-const ListMenu = [
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+const items = [
+  getItem("Dashboard", "dashboard", <DashboardOutlined />, [
+    getItem("Analysis","1"),
+    getItem("Monitor", "2"),
+    getItem("Workplace", "3"),
+  ]),
+  getItem("User", "user", <UserOutlined />, [
+    getItem("List User", "list-user"),
+    getItem("Modify User", "modify"),
+  ]),
+  getItem("Customers", "sub3", <UsergroupAddOutlined />, [
+    getItem("Option 9", "9"),
+    getItem("Option 10", "10"),
+    getItem("Option 11", "11"),
+    getItem("Option 12", "12"),
+  ]),
+  getItem("Product", "sub4", <AppstoreOutlined />, [
+    getItem("Option 9", "9"),
+    getItem("Option 10", "10"),
+    getItem("Option 11", "11"),
+    getItem("Option 12", "12"),
+  ]),
+  getItem("Orders", "sub5", <BarsOutlined />, [
+    getItem("Option 9", "9"),
+    getItem("Option 10", "10"),
+    getItem("Option 11", "11"),
+    getItem("Option 12", "12"),
+  ]),
+  getItem("Coupon", "sub6", <AccountBookOutlined />, [
+    getItem("Option 9", "9"),
+    getItem("Option 10", "10"),
+    getItem("Option 11", "11"),
+    getItem("Option 12", "12"),
+  ]),
+];
+
+const onChange = (key) => {
+  console.log(key);
+};
+const items2 = [
   {
-    id: 1,
-    label: "Navigation One",
-    key: "mail",
-    icon: <DashboardOutlined />,
-    children: [
-      {
-        label: "Option 1",
-        key: "setting:1",
-      },
-      {
-        label: "Option 2",
-        key: "setting:1",
-      },
-      {
-        label: "Option 3",
-        key: "setting:1",
-      },
-    ],
+    key: "1",
+    label: `Tab 1`,
+    children: `Content of Tab Pane 1`,
   },
   {
-    id: 1,
-    label: "Navigation One",
-    key: "mail",
-    icon: <DashboardOutlined />,
-    children: [
-      {
-        label: "Option 1",
-        key: "setting:1",
-      },
-      {
-        label: "Option 2",
-        key: "setting:1",
-      },
-      {
-        label: "Option 3",
-        key: "setting:1",
-      },
-    ],
+    key: "2",
+    label: `Tab 2`,
+    children: `Content of Tab Pane 2`,
   },
   {
-    id: 1,
-    label: "Navigation One",
-    key: "mail",
-    icon: <DashboardOutlined />,
-    children: [
-      {
-        label: "Option 1",
-        key: "setting:1",
-      },
-      {
-        label: "Option 2",
-        key: "setting:1",
-      },
-      {
-        label: "Option 3",
-        key: "setting:1",
-      },
-    ],
+    key: "3",
+    label: `Tab 3`,
+    children: `Content of Tab Pane 3`,
   },
 ];
 
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-    return {
-      key: String(index + 1),
-      icon: React.createElement(icon),
-      label: `${ListMenu.splice(0,1)}` ,
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  }
-);
-const Home = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+const Home = ({children}) => {
+  const [theme, setTheme] = useState("dark");
+  const [current, setCurrent] = useState("1");
+  const changeTheme = (value) => {
+    setTheme(value ? "dark" : "light");
+  };
+
+  // const handleClick = () =>{
+  //   const navigate = useNavigate();
+  //   navigate("/home");
+  // }
+
+  // const onClick = (e, path) => {
+  //   // console.log("click ", path);
+  //   useNavigate("/home");
+  //   setCurrent(e.key);
+  // };
+
+  const navigate = useNavigate();
+
   return (
     <Layout>
       <Header
@@ -148,17 +173,22 @@ const Home = () => {
         </Menu>
       </Header>
       <Layout>
-        <Sider theme="dark" width={200}>
+        <Sider theme="dark">
+          <Switch
+            checked={theme === "dark"}
+            onChange={changeTheme}
+            checkedChildren="Dark"
+            unCheckedChildren="Light"
+          />
+          <br />
+          <br />
           <Menu
-            mode="inline"
-            defaultSelectedKeys={["1"]}
+            theme={theme}
+            onClick={(e) => navigate(`/${e.keyPath[1]}/${e.keyPath[0]}`)}
             defaultOpenKeys={["sub1"]}
-            theme="dark"
-            style={{
-              height: "100%",
-              borderRight: 0,
-            }}
-            // items={items2}
+            selectedKeys={[current]}
+            mode="inline"
+            items={items}
           />
         </Sider>
         <Layout
@@ -166,23 +196,75 @@ const Home = () => {
             padding: "0 24px 24px",
           }}
         >
-          <Breadcrumb
-            style={{
-              margin: "16px 0",
-            }}
-          >
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
           <Content
             style={{
               padding: 24,
               margin: 0,
               minHeight: 280,
-              background: colorBgContainer,
             }}
-          ></Content>
+          >
+            {children}
+            {/* <>
+              <Row
+                gutter={{
+                  xs: 8,
+                  sm: 16,
+                  md: 24,
+                  lg: 32,
+                }}
+              >
+                <Col className="gutter-row" span={6}>
+                  <div style={style}>
+                    <Row justify="space-between" align="middle">
+                      <Text type="secondary">Tổng doanh số</Text>
+                      <InfoCircleOutlined />
+                    </Row>
+                    <Row>
+                      <Text style={{ fontSize: "30px" }}>¥ 126,560</Text>
+                    </Row>
+                    <Row>
+                      <Space size={16} style={{ marginLeft: "8px" }}>
+                        <Statistic
+                          value={"12% hàng ngày"}
+                          precision={2}
+                          valueStyle={{ color: "#3f8600", fontSize: "14px" }}
+                          prefix={<ArrowUpOutlined />}
+                          gutter={[16]}
+                        />
+                        <Statistic
+                          value={"11% hàng ngày"}
+                          precision={2}
+                          valueStyle={{ color: "#cf1322", fontSize: "14px" }}
+                          prefix={<ArrowDownOutlined />}
+                        />
+                      </Space>
+                    </Row>
+                    <Divider style={{ margin: "8px 0" }} />
+                    <Row>
+                      <Space size={8}>
+                        <Text>Doanh thu hàng ngày</Text>
+                        <Text>￥12,423</Text>
+                      </Space>
+                    </Row>
+                  </div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                  <div style={style}>col-6</div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                  <div style={style}>col-6</div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                  <div style={style}>col-6</div>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="gutter-row" span={24}>
+                  <div style={style}></div>
+                </Col>
+              </Row>
+            </> */}
+          </Content>
         </Layout>
       </Layout>
     </Layout>

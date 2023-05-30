@@ -1,13 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import logo from './logo.svg';
-import './App.css';
-import Home from './containers/home';
+import logo from "./logo.svg";
+import "./App.css";
+import Home from "./containers/home";
+import Dashboard from "containers/dashboard";
+import ListUser from "containers/user";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-    </Routes>
+    <Home>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/user/list-user" element={<ListUser />} />
+      </Routes>
+    </Home>
   );
 }
 
