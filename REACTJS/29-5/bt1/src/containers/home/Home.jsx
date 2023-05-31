@@ -132,17 +132,6 @@ const Home = ({children}) => {
     setTheme(value ? "dark" : "light");
   };
 
-  // const handleClick = () =>{
-  //   const navigate = useNavigate();
-  //   navigate("/home");
-  // }
-
-  // const onClick = (e, path) => {
-  //   // console.log("click ", path);
-  //   useNavigate("/home");
-  //   setCurrent(e.key);
-  // };
-
   const navigate = useNavigate();
 
   return (
