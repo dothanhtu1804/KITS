@@ -4,49 +4,15 @@ import { FormUser } from "components/form_add_user";
 import { PlusOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    sorter: {
-      compare: (a, b) => a.name.localeCompare(b.name),
-      multiple: 3,
-    },
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-    sorter: {
-      compare: (a, b) => a.age - b.age,
-      multiple: 2,
-    },
-  },
-  {
-    title: "Email",
-    dataIndex: "email",
-    key: "email",
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
 
 
-const onChange = (pagination, filters, sorter, extra) => {
-  console.log("params", pagination, filters, sorter, extra);
-};
+
+// const onChange = (pagination, filters, sorter, extra) => {
+//   console.log("params", pagination, filters, sorter, extra);
+// };
 
 const ListUser = () => {
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -66,7 +32,52 @@ const ListUser = () => {
     dispatch.users.fetchUsers();
   }, []);
   
-  
+  const onDelete = (record, e) => {
+    e.preventDefault();
+    data.listUser.forEach(element => {
+      if(record.id == element.id){
+        const newData = data.listUser.filter(element => element.id != record.id);
+        dispatch.users.setListUser(newData);
+      }
+    });
+  }
+
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      sorter: {
+        compare: (a, b) => a.name.localeCompare(b.name),
+        multiple: 3,
+      },
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "Age",
+      dataIndex: "age",
+      key: "age",
+      sorter: {
+        compare: (a, b) => a.age - b.age,
+        multiple: 2,
+      },
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <a>Edit</a>
+          <a onClick={(e) => { onDelete(record, e); console.log("Clicked delete on row:", record); }}>Delete</a>
+        </Space>
+      ),
+    },
+  ];
   
   return (
     <>
