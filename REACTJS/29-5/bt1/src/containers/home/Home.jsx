@@ -76,7 +76,7 @@ const items = [
   ]),
   getItem("User", "user", <UserOutlined />, [
     getItem("List User", "list-user"),
-    getItem("Modify User", "modify"),
+    getItem("Modify User", "list-user2"),
   ]),
   getItem("Customers", "sub3", <UsergroupAddOutlined />, [
     getItem("Option 9", "9"),
@@ -104,26 +104,7 @@ const items = [
   ]),
 ];
 
-const onChange = (key) => {
-  console.log(key);
-};
-const items2 = [
-  {
-    key: "1",
-    label: `Tab 1`,
-    children: `Content of Tab Pane 1`,
-  },
-  {
-    key: "2",
-    label: `Tab 2`,
-    children: `Content of Tab Pane 2`,
-  },
-  {
-    key: "3",
-    label: `Tab 3`,
-    children: `Content of Tab Pane 3`,
-  },
-];
+
 
 const Home = ({children}) => {
   const [theme, setTheme] = useState("dark");

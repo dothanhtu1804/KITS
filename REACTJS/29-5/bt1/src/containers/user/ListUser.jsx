@@ -4,15 +4,11 @@ import { FormUser } from "components/form_add_user";
 import { PlusOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 
-
-
-
 // const onChange = (pagination, filters, sorter, extra) => {
 //   console.log("params", pagination, filters, sorter, extra);
 // };
 
 const ListUser = () => {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -31,16 +27,13 @@ const ListUser = () => {
   useEffect(() => {
     dispatch.users.fetchUsers();
   }, []);
-  
+
   const onDelete = (record, e) => {
     e.preventDefault();
-    data.listUser.forEach(element => {
-      if(record.id == element.id){
-        const newData = data.listUser.filter(element => element.id != record.id);
-        dispatch.users.setListUser(newData);
-      }
-    });
-  }
+    console.log(record);
+    const newData = data.listUser.filter((element) => element.id != record.id);
+    dispatch.users.setListUser(newData);
+  };
 
   const columns = [
     {
@@ -54,12 +47,12 @@ const ListUser = () => {
       render: (text) => <a>{text}</a>,
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
       sorter: {
-        compare: (a, b) => a.age - b.age,
-        multiple: 2,
+        compare: (a, b) => a.username.localeCompare(b.username),
+        multiple: 3,
       },
     },
     {
@@ -73,12 +66,19 @@ const ListUser = () => {
       render: (_, record) => (
         <Space size="middle">
           <a>Edit</a>
-          <a onClick={(e) => { onDelete(record, e); console.log("Clicked delete on row:", record); }}>Delete</a>
+          <a
+            onClick={(e) => {
+              onDelete(record, e);
+              console.log("Clicked delete on row:", record);
+            }}
+          >
+            Delete
+          </a>
         </Space>
       ),
     },
   ];
-  
+
   return (
     <>
       <Row justify="space-between">

@@ -1,3 +1,4 @@
 import ListUser from "./ListUser";
+import ListUser2 from "./ListUser2";
 
-export default ListUser;
+export { ListUser, ListUser2 };

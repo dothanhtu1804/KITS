@@ -67,11 +67,15 @@ export const FormUser = () => {
     dispatch.users.fetchUsers();
   }, []);
 
-
   const addUser = (user) => {
-    console.log(user);
-    const newData = [...data.listUser, {
-        key: Math.floor(Math.random() * 10000) + 1,
+    const listData = data.listUser;
+    const maxId = listData.reduce(
+      (max, listData) => (listData.id > max ? listData.id : max),
+      listData[0].id
+    );
+         
+    const newData = [...listData, {
+        id: maxId + 1,
         name: user.name,
         email:  user.email,
         age: user.age,
