@@ -70,7 +70,7 @@ function getItem(label, key, icon, children, type) {
 }
 const items = [
   getItem("Dashboard", "dashboard", <DashboardOutlined />, [
-    getItem("Analysis","1"),
+    getItem("Analysis",""),
     getItem("Monitor", "2"),
     getItem("Workplace", "3"),
   ]),
