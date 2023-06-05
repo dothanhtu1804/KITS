@@ -1,6 +1,7 @@
 import { Header } from "components/Header";
 import { Button } from "components/Button";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import shopping from "assets/components/header/cart2.svg";
 import contentImage from "assets/components/header/cac-shop-thoi-trang-o-tphcm-1-3_result.jpg";
 import tree from "assets/components/header/tree.svg";
@@ -14,6 +15,7 @@ import popular1 from "assets/components/header/item-category1.svg";
 import popular2 from "assets/components/header/item-category2.svg";
 import popular3 from "assets/components/header/item-category3.svg";
 import popular4 from "assets/components/header/item-category4.svg";
+import fillter from "assets/components/header/fillter.svg"
 
 const ContentHeaderHomeStyled = styled.div`
   background-color: #f0f0f0;
@@ -74,6 +76,7 @@ const ContentHomeStyled = styled.div`
   .popular_list {
     display: flex;
     gap: 12px;
+    margin-bottom: 80px;
   }
 
   .popular_list .popular_list_left {
@@ -127,6 +130,37 @@ const ContentHomeStyled = styled.div`
     background-color: #1e2832;
     top: 30px;
     left: -4px;
+  }
+
+  .newsletter h1 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 59px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .newsletter .header_newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .newsletter .header_newsletter .header_newsletter_left{
+    display: flex;
+    gap: 20px;
+  }
+
+  .newsletter .header_newsletter .header_newsletter_left a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #00000080;
+  }
+
+  .newsletter .header_newsletter .header_newsletter_left a:active {
+    color: #000000;
   }
 `;
 
@@ -186,6 +220,20 @@ const Home = () => {
               </div>
               <div className="card_item">
                 <img src={popular4} alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="newsletter">
+            <h1>Or Subscribe To The Newsletter</h1>
+            <div className="header_newsletter">
+              <div className="header_newsletter_left">
+                <NavLink>All Products</NavLink>
+                <NavLink>T-Shirt</NavLink>
+                <NavLink>Hoodies</NavLink>
+                <NavLink>Jacket</NavLink>
+              </div>
+              <div className="header_newsletter_right">
+                <Button url={fillter} name_button={"Fillter"} type={"smalls"}></Button>
               </div>
             </div>
           </div>

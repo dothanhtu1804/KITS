@@ -21,6 +21,8 @@ const ButtonDefaultStyled = styled.div`
   }
 `;
 
+const ButtonSmallStyled = styled.div``;
+
 const ButtonLargeStyled = styled.div`
   button {
     display: flex;
@@ -54,7 +56,14 @@ export const Button = ({ url, name_button, type }) => {
   console.log(url, name_button, type);
   switch (type) {
     case "small":
-      break;
+      return (
+        <ButtonSmallStyled url={url} name_button={name_button}>
+          <button>
+            <img src={url} alt="" />
+            <span>{name_button}</span>
+          </button>
+        </ButtonSmallStyled>
+      );
     case "large":
       return (
         <ButtonLargeStyled url={url} name_button={name_button}>
