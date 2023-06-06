@@ -1,5 +1,6 @@
 import { Header } from "components/Header";
 import { Button } from "components/Button";
+import { ProductCart } from "components/ProductCart";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import shopping from "assets/components/header/cart2.svg";
@@ -15,7 +16,19 @@ import popular1 from "assets/components/header/item-category1.svg";
 import popular2 from "assets/components/header/item-category2.svg";
 import popular3 from "assets/components/header/item-category3.svg";
 import popular4 from "assets/components/header/item-category4.svg";
-import fillter from "assets/components/header/fillter.svg"
+import fillter from "assets/components/header/fillter.svg";
+import newsletter1 from "assets/components/header/image-product.svg";
+import newsletter2 from "assets/components/header/image-product-1.svg";
+import newsletter3 from "assets/components/header/image-product-2.svg";
+import newsletter4 from "assets/components/header/image-product-3.svg";
+import newsletter5 from "assets/components/header/image-product-4.svg";
+import newsletter6 from "assets/components/header/image-product-5.svg";
+import newsletter7 from "assets/components/header/image-product-6.svg";
+import newsletter8 from "assets/components/header/image-product-7.svg";
+import background_collection from "assets/components/header/background_collection.svg";
+import title_collection from "assets/components/header/logo_collection.svg";
+import background_collection2 from "assets/components/header/logo_collection2.svg";
+import { Carousel } from "react-bootstrap";
 
 const ContentHeaderHomeStyled = styled.div`
   background-color: #f0f0f0;
@@ -67,11 +80,15 @@ const ContentHeaderHomeStyled = styled.div`
 `;
 
 const ContentHomeStyled = styled.div`
+  /* style cho brand */
+
   .brand {
     display: flex;
     justify-content: space-between;
     margin: 40px 0;
   }
+
+  /* style cho danh sách phổ biến */
 
   .popular_list {
     display: flex;
@@ -120,16 +137,10 @@ const ContentHomeStyled = styled.div`
     max-height: 256px;
   }
 
-  .sale:before {
-    content: "SALE";
-    font-size: 12px;
-    line-height: 16px;
-    position: absolute;
-    color: #ffffff;
-    padding: 8px 12px;
-    background-color: #1e2832;
-    top: 30px;
-    left: -4px;
+  /* style cho newsletter */
+
+  .newsletter {
+    margin-bottom: 80px;
   }
 
   .newsletter h1 {
@@ -144,9 +155,10 @@ const ContentHomeStyled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
   }
 
-  .newsletter .header_newsletter .header_newsletter_left{
+  .newsletter .header_newsletter .header_newsletter_left {
     display: flex;
     gap: 20px;
   }
@@ -159,8 +171,107 @@ const ContentHomeStyled = styled.div`
     color: #00000080;
   }
 
+  .newsletter .header_newsletter .header_newsletter_left a:hover {
+    color: #ff6f61;
+  }
+
   .newsletter .header_newsletter .header_newsletter_left a:active {
     color: #000000;
+  }
+
+  .newsletter .body_newsletter {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+
+  /* style for collection */
+
+  .collection {
+    background-image: url(${background_collection});
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 900px;
+    position: relative;
+    margin-bottom: 80px;
+  }
+
+  .collection .background_collection2 {
+    position: absolute;
+    top: 100px;
+    right: -30px;
+  }
+
+  .collection .body_collection {
+    position: absolute;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    top: 30%;
+    left: 60%;
+  }
+
+  .collection .body_collection img {
+    height: 80px;
+    width: 180px;
+  }
+
+  .collection .body_collection p {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 40px;
+    color: #ff6f61;
+  }
+
+  /* style cho danh sách bán chạy */
+
+  .best_seller {
+    margin-bottom: 80px;
+  }
+
+  .best_seller h1 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 59px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .best_seller .header_best_seller {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .best_seller .header_best_seller .header_best_seller_left {
+    display: flex;
+    gap: 20px;
+  }
+
+  .best_seller .header_best_seller .header_best_seller_left a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #00000080;
+  }
+
+  .best_seller .header_best_seller .header_best_seller_left a:hover {
+    color: #ff6f61;
+  }
+
+  .best_seller .header_best_seller .header_best_seller_left a:active {
+    color: #000000;
+  }
+
+  .best_seller .body_best_seller {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 12px;
+    row-gap: 12px;
   }
 `;
 
@@ -233,8 +344,127 @@ const Home = () => {
                 <NavLink>Jacket</NavLink>
               </div>
               <div className="header_newsletter_right">
-                <Button url={fillter} name_button={"Fillter"} type={"smalls"}></Button>
+                <Button
+                  url={fillter}
+                  name_button={"Fillter"}
+                  type={"small"}
+                ></Button>
               </div>
+            </div>
+            <div className="body_newsletter">
+              <ProductCart
+                img={newsletter5}
+                title={"Nike Sportswear Futura Luxe"}
+                cate={"Bag"}
+                price_normal="130.00"
+                hot={true}
+              ></ProductCart>
+              <ProductCart
+                img={newsletter4}
+                title={"Adicolor Classics Joggers"}
+                cate={"Dress"}
+                price_normal="63.85"
+                sale={true}
+              ></ProductCart>
+              <ProductCart
+                img={newsletter6}
+                title={"Geometric print Scarf"}
+                cate={"Scarf"}
+                price_normal="53.00"
+              ></ProductCart>
+              <ProductCart
+                img={newsletter1}
+                title={"Yellow Reserved Hoodie"}
+                cate={"Dress"}
+                price_normal="364.00"
+                price_decrease="155.00"
+              ></ProductCart>
+              <ProductCart
+                img={newsletter8}
+                title={"Basic Dress Green"}
+                cate={"Dress"}
+                price_normal="236.00"
+              ></ProductCart>
+              <ProductCart
+                img={newsletter7}
+                title={"Nike Air Zoom Pegasus"}
+                cate={"Shoe"}
+                price_normal="220.00"
+                price_decrease="198.00"
+              ></ProductCart>
+              <ProductCart
+                img={newsletter2}
+                title={"Nike Repel Miler"}
+                cate={"Dress"}
+                price_normal="120.50"
+              ></ProductCart>
+              <ProductCart
+                img={newsletter3}
+                title={"Nike Sportswear Futura Luxe"}
+                cate={"Glasses"}
+                price_normal="160.00"
+              ></ProductCart>
+            </div>
+          </div>
+        </div>
+        <div className="collection">
+          <div className="body_collection">
+            <img src={title_collection} alt="" />
+            <p>
+              Lustrous yet understated. The new evening wear collection
+              exclusively offered at the reopened Giorgio Armani boutique in Los
+              Angeles.
+            </p>
+            <Button name_button={"See Collection"} type={"collection"}></Button>
+          </div>
+          <img
+            src={background_collection2}
+            alt=""
+            className="background_collection2"
+          />
+        </div>
+        <div className="container">
+          <div className="best_seller">
+            <h1>Best Sellers</h1>
+            <div className="header_best_seller">
+              <div className="header_best_seller_left">
+                <NavLink>All Products</NavLink>
+                <NavLink>T-Shirt</NavLink>
+                <NavLink>Hoodies</NavLink>
+                <NavLink>Jacket</NavLink>
+              </div>
+              <div className="header_best_seller_right">
+                <Button name_button={"Show All"} type={"small"}></Button>
+              </div>
+            </div>
+            <div className="body_best_seller">
+              <ProductCart
+                img={newsletter4}
+                title={"Adicolor Classics Joggers"}
+                cate={"Dress"}
+                price_normal="63.85"
+                sale={true}
+              ></ProductCart>
+              <ProductCart
+                img={newsletter5}
+                title={"Nike Sportswear Futura Luxe"}
+                cate={"Bag"}
+                price_normal="130.00"
+                hot={true}
+              ></ProductCart>
+              <ProductCart
+                img={newsletter6}
+                title={"Geometric print Scarf"}
+                cate={"Scarf"}
+                price_normal="53.00"
+              ></ProductCart>
+              <ProductCart
+                img={newsletter1}
+                title={"Yellow Reserved Hoodie"}
+                cate={"Dress"}
+                price_normal="364.00"
+                price_decrease="155.00"
+              ></ProductCart>
             </div>
           </div>
         </div>

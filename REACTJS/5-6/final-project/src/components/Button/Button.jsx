@@ -1,11 +1,70 @@
 import styled from "styled-components";
 
-const ButtonDefaultStyled = styled.div`
+const ButtonStyled = styled.div`
   button {
     display: flex;
     gap: 11px;
     border: none;
     align-items: center;
+  }
+
+  .small-button,
+  .large-button,
+  .collection-button {
+    button {
+      background-color: #1e2832;
+      padding: 12px 15px;
+    }
+
+    button:hover {
+      background-color: #FF6F61;
+    }
+
+    span {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 34px;
+      color: #ffffff;
+    }
+  }
+
+  .small-button {
+    button {
+      padding: 0px 10px;
+    }
+
+    button:hover {
+      background-color: #FF6F61;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .large-button {
+    button {
+      padding: 12px 15px;
+      color: #ffffff;
+    }
+
+    span {
+      font-family: "Roboto";
+      font-size: 20px;
+    }
+  }
+
+  .collection-button{
+    button {
+      padding: 12px 15px;
+      background-color: #ffffff;
+    }
+
+    span {
+      font-family: "Roboto";
+      font-size: 20px;
+      color: #1E2832;
+    }
   }
 
   img {
@@ -20,67 +79,16 @@ const ButtonDefaultStyled = styled.div`
     line-height: 21px;
   }
 `;
-
-const ButtonSmallStyled = styled.div``;
-
-const ButtonLargeStyled = styled.div`
-  button {
-    display: flex;
-    gap: 11px;
-    padding: 12px 15px;
-    background-color: #1e2832;
-    align-items: center;
-    width: fit-content;
-    border: none;
-  }
-
-  button:hover {
-    background-color: tomato;
-  }
-
-  img {
-    width: 20px;
-    height: 20px;
-  }
-
-  span {
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 34px;
-    color: #ffffff;
-  }
-`;
-
 export const Button = ({ url, name_button, type }) => {
-  console.log(url, name_button, type);
-  switch (type) {
-    case "small":
-      return (
-        <ButtonSmallStyled url={url} name_button={name_button}>
-          <button>
-            <img src={url} alt="" />
-            <span>{name_button}</span>
-          </button>
-        </ButtonSmallStyled>
-      );
-    case "large":
-      return (
-        <ButtonLargeStyled url={url} name_button={name_button}>
-          <button>
-            <img src={url} alt="" />
-            <span>{name_button}</span>
-          </button>
-        </ButtonLargeStyled>
-      );
-    default:
-      return (
-        <ButtonDefaultStyled url={url} name_button={name_button}>
-          <button>
-            <img src={url} alt="" />
-            <span>{name_button}</span>
-          </button>
-        </ButtonDefaultStyled>
-      );
-  }
+  const className = `${type}-button`;
+  return (
+    <ButtonStyled url={url} name_button={name_button}>
+      <div className={className}>
+        <button>
+          {url ? (<img src={url} alt="" />) : ''}
+          <span>{name_button}</span>
+        </button>
+      </div>
+    </ButtonStyled>
+  );
 };
