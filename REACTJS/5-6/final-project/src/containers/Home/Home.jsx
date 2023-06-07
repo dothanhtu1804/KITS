@@ -28,7 +28,66 @@ import newsletter8 from "assets/components/header/image-product-7.svg";
 import background_collection from "assets/components/header/background_collection.svg";
 import title_collection from "assets/components/header/logo_collection.svg";
 import background_collection2 from "assets/components/header/logo_collection2.svg";
-import { Carousel } from "react-bootstrap";
+import instagram1 from "assets/components/header/image-product-8.svg";
+import instagram2 from "assets/components/header/image-product-9.svg";
+import instagram3 from "assets/components/header/image-product-10.svg";
+import instagram4 from "assets/components/header/image-product-11.svg";
+import instagram5 from "assets/components/header/image-product-12.svg";
+import instagram6 from "assets/components/header/image-product-13.svg";
+import instagram from "assets/components/header/instagram1.svg";
+import { Carousel } from "components/Carousel";
+import { Footer } from "components/Footer";
+
+const dataBestSeller = [
+  {
+    id: 1,
+    img: newsletter4,
+    title: "Adicolor Classics Joggers",
+    cate: "Dress",
+    price_normal: "63.85",
+    sale: true,
+  },
+  {
+    id: 2,
+    img: newsletter4,
+    title: "Adicolor Classics Joggers",
+    cate: "Dress",
+    price_normal: "63.85",
+    sale: true,
+  },
+  {
+    id: 3,
+    img: newsletter4,
+    title: "Adicolor Classics Joggers",
+    cate: "Dress",
+    price_normal: "63.85",
+    sale: true,
+  },
+  {
+    id: 4,
+    img: newsletter4,
+    title: "Adicolor Classics Joggers",
+    cate: "Dress",
+    price_normal: "63.85",
+    hot: true,
+  },
+  {
+    id: 5,
+    img: newsletter2,
+    title: "Adicolor Classics Joggers",
+    cate: "Dress",
+    price_normal: "63.85",
+    sale: true,
+  },
+  {
+    id: 6,
+    img: newsletter3,
+    title: "Yellow Reserved Hoodie",
+    cate: "Dress",
+    price_normal: "364.00",
+    price_decrease: "155.00",
+  },
+];
 
 const ContentHeaderHomeStyled = styled.div`
   background-color: #f0f0f0;
@@ -267,11 +326,103 @@ const ContentHomeStyled = styled.div`
     color: #000000;
   }
 
-  .best_seller .body_best_seller {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    column-gap: 12px;
-    row-gap: 12px;
+  .best_seller .body_best_seller .slick-track {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* style cho follow instagram */
+
+  .follow_instagram_container {
+    background-color: #f0f0f0;
+  }
+
+  .follow_instagram_container .container .follow_instagram {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0 60px 0;
+    gap: 40px;
+  }
+
+  .follow_instagram_container .container .follow_instagram h2 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 59px;
+  }
+
+  .follow_instagram_container .container .follow_instagram h4 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 33px;
+    color: #ff6f61;
+  }
+
+  .follow_instagram_container .container .follow_instagram .list_images {
+    display: flex;
+    gap: 24px;
+  }
+
+  .follow_instagram_container
+    .container
+    .follow_instagram
+    .list_images
+    .list_image_item {
+    position: relative;
+  }
+
+  .follow_instagram_container
+    .container
+    .follow_instagram
+    .list_images
+    .list_image_item
+    img {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+    -moz-transition: opacity 0.25s ease-in-out;
+    -webkit-transition: opacity 0.25s ease-in-out;
+  }
+
+  .follow_instagram_container
+    .container
+    .follow_instagram
+    .list_images
+    .list_image_item
+    .outer {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in;
+  }
+
+  .follow_instagram_container
+    .container
+    .follow_instagram
+    .list_images
+    .list_image_item
+    .outer
+    img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .follow_instagram_container
+    .container
+    .follow_instagram
+    .list_images
+    .list_image_item
+    .outer:hover {
+    opacity: 0.5;
   }
 `;
 
@@ -438,37 +589,58 @@ const Home = () => {
               </div>
             </div>
             <div className="body_best_seller">
-              <ProductCart
-                img={newsletter4}
-                title={"Adicolor Classics Joggers"}
-                cate={"Dress"}
-                price_normal="63.85"
-                sale={true}
-              ></ProductCart>
-              <ProductCart
-                img={newsletter5}
-                title={"Nike Sportswear Futura Luxe"}
-                cate={"Bag"}
-                price_normal="130.00"
-                hot={true}
-              ></ProductCart>
-              <ProductCart
-                img={newsletter6}
-                title={"Geometric print Scarf"}
-                cate={"Scarf"}
-                price_normal="53.00"
-              ></ProductCart>
-              <ProductCart
-                img={newsletter1}
-                title={"Yellow Reserved Hoodie"}
-                cate={"Dress"}
-                price_normal="364.00"
-                price_decrease="155.00"
-              ></ProductCart>
+              <Carousel data={dataBestSeller} />
+            </div>
+          </div>
+        </div>
+        <div className="follow_instagram_container">
+          <div className="container">
+            <div className="follow_instagram">
+              <h2>Follow Products And Discounts On Instagram</h2>
+              <div className="list_images">
+                <div className="list_image_item">
+                  <img src={instagram1} alt="" />
+                  <div className="outer">
+                    <img src={instagram} alt="" />
+                  </div>
+                </div>
+                <div className="list_image_item">
+                  <img src={instagram2} alt="" />
+                  <div className="outer">
+                    <img src={instagram} alt="" />
+                  </div>
+                </div>
+                <div className="list_image_item">
+                  <img src={instagram3} alt="" />
+                  <div className="outer">
+                    <img src={instagram} alt="" />
+                  </div>
+                </div>
+                <div className="list_image_item">
+                  <img src={instagram4} alt="" />
+                  <div className="outer">
+                    <img src={instagram} alt="" />
+                  </div>
+                </div>
+                <div className="list_image_item">
+                  <img src={instagram5} alt="" />
+                  <div className="outer">
+                    <img src={instagram} alt="" />
+                  </div>
+                </div>
+                <div className="list_image_item">
+                  <img src={instagram6} alt="" />
+                  <div className="outer">
+                    <img src={instagram} alt="" />
+                  </div>
+                </div>
+              </div>
+              <h4>@lisa.official</h4>
             </div>
           </div>
         </div>
       </ContentHomeStyled>
+      <Footer></Footer>
     </>
   );
 };

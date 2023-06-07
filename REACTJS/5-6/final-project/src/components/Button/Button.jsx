@@ -6,6 +6,7 @@ const ButtonStyled = styled.div`
     gap: 11px;
     border: none;
     align-items: center;
+    background: none;
   }
 
   .small-button,
@@ -73,10 +74,10 @@ const ButtonStyled = styled.div`
   }
 
   span {
-    font-family: "Roboto";
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+    width: fit-content;
   }
 `;
 export const Button = ({ url, name_button, type }) => {
