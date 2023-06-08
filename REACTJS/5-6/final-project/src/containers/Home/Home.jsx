@@ -37,6 +37,7 @@ import instagram6 from "assets/components/header/image-product-13.svg";
 import instagram from "assets/components/header/instagram1.svg";
 import { Carousel } from "components/Carousel";
 import { Footer } from "components/Footer";
+import { ScrollToTop } from "components/Scroll_to_top";
 
 const dataBestSeller = [
   {
@@ -121,7 +122,7 @@ const ContentHeaderHomeStyled = styled.div`
   }
 
   .body_content .body_content_right {
-    width: 50%;
+    width: 40%;
   }
 
   .body_content .body_content_right img {
@@ -153,6 +154,7 @@ const ContentHomeStyled = styled.div`
     display: flex;
     gap: 12px;
     margin-bottom: 80px;
+    height: 535px;
   }
 
   .popular_list .popular_list_left {
@@ -161,12 +163,35 @@ const ContentHomeStyled = styled.div`
 
   .popular_list .popular_list_left .card_item {
     position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .popular_list  .card_item .info {
+    background-color: #1e2832;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+    position: absolute;
+    bottom: 0px;
+    width: -webkit-fill-available;
+    transition: all 0.35s ease-in;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .popular_list .card_item .info span {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #ffffff;
   }
 
   .popular_list .popular_list_left .card_item img {
     width: 100%;
-    max-height: 528px;
     object-fit: contain;
+    height: 100%;
   }
 
   .popular_list .popular_list_left .card_item p {
@@ -193,7 +218,16 @@ const ContentHomeStyled = styled.div`
   }
 
   .popular_list .popular_list_right .card_item img {
-    max-height: 256px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card_item:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    .info {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   /* style cho newsletter */
@@ -259,7 +293,7 @@ const ContentHomeStyled = styled.div`
   .collection .background_collection2 {
     position: absolute;
     top: 100px;
-    right: -30px;
+    right: 0px;
   }
 
   .collection .body_collection {
@@ -467,21 +501,40 @@ const Home = () => {
             <div className="popular_list_left">
               <div className="card_item">
                 <img src={popular_main} alt="" />
-                <p>Explore new and popular styles</p>
+                <div className="info">
+                  <span>Jacket</span>
+                  <span>103 Product</span>
+                </div>
               </div>
             </div>
             <div className="popular_list_right">
               <div className="card_item">
                 <img src={popular1} alt="" />
+                <div className="info">
+                  <span>Jacket</span>
+                  <span>103 Product</span>
+                </div>
               </div>
               <div className="card_item sale">
                 <img src={popular2} alt="" />
+                <div className="info">
+                  <span>Jacket</span>
+                  <span>103 Product</span>
+                </div>
               </div>
               <div className="card_item">
                 <img src={popular3} alt="" />
+                <div className="info">
+                  <span>Jacket</span>
+                  <span>103 Product</span>
+                </div>
               </div>
               <div className="card_item">
                 <img src={popular4} alt="" />
+                <div className="info">
+                  <span>Jacket</span>
+                  <span>103 Product</span>
+                </div>
               </div>
             </div>
           </div>
@@ -641,6 +694,7 @@ const Home = () => {
         </div>
       </ContentHomeStyled>
       <Footer></Footer>
+      <ScrollToTop></ScrollToTop>
     </>
   );
 };

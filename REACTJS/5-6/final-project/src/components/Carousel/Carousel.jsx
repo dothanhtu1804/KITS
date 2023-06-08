@@ -49,7 +49,7 @@ const Carousel = ({ data }) => {
   return (
     <CarouselStyled>
       <Slider {...settings}>
-        {data?.map((card) => (
+        {data.map((card) => (
           <ProductCart
             key={card.id}
             img={card.img}

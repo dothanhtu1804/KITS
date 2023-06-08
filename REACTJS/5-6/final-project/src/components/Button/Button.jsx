@@ -9,6 +9,10 @@ const ButtonStyled = styled.div`
     background: none;
   }
 
+  button:hover {
+    color: #ff6f61;
+  }
+
   .small-button,
   .large-button,
   .collection-button {
@@ -18,7 +22,7 @@ const ButtonStyled = styled.div`
     }
 
     button:hover {
-      background-color: #FF6F61;
+      background-color: #ff6f61;
     }
 
     span {
@@ -35,7 +39,7 @@ const ButtonStyled = styled.div`
     }
 
     button:hover {
-      background-color: #FF6F61;
+      background-color: #ff6f61;
     }
 
     span {
@@ -55,7 +59,7 @@ const ButtonStyled = styled.div`
     }
   }
 
-  .collection-button{
+  .collection-button {
     button {
       padding: 12px 15px;
       background-color: #ffffff;
@@ -64,7 +68,7 @@ const ButtonStyled = styled.div`
     span {
       font-family: "Roboto";
       font-size: 20px;
-      color: #1E2832;
+      color: #1e2832;
     }
   }
 
@@ -86,7 +90,7 @@ export const Button = ({ url, name_button, type }) => {
     <ButtonStyled url={url} name_button={name_button}>
       <div className={className}>
         <button>
-          {url ? (<img src={url} alt="" />) : ''}
+          {url ? <img src={url} alt="" /> : ""}
           <span>{name_button}</span>
         </button>
       </div>
