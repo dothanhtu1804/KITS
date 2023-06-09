@@ -138,7 +138,6 @@ const ContentHeaderHomeStyled = styled.div`
     top: 300px;
   }
 `;
-
 const ContentHomeStyled = styled.div`
   /* style cho brand */
 
@@ -150,24 +149,31 @@ const ContentHomeStyled = styled.div`
 
   /* style cho danh sách phổ biến */
 
+  .popular_list_container{
+    position: relative;
+  }
+
+  .popular_list_container p {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 40px;
+    transform: rotate(-90deg);
+    text-transform: uppercase;
+    position: absolute;
+    top: 45%;
+    left: -25%;
+  }
+
   .popular_list {
-    display: flex;
+    display: grid;
     gap: 12px;
+    grid-template-columns: auto auto auto auto;
     margin-bottom: 80px;
     height: 535px;
-  }
-
-  .popular_list .popular_list_left {
-    width: 50%;
-  }
-
-  .popular_list .popular_list_left .card_item {
     position: relative;
-    width: 100%;
-    height: 100%;
   }
 
-  .popular_list  .card_item .info {
+  .popular_list .card_item .info {
     background-color: #1e2832;
     display: flex;
     align-items: center;
@@ -188,38 +194,22 @@ const ContentHomeStyled = styled.div`
     color: #ffffff;
   }
 
-  .popular_list .popular_list_left .card_item img {
+  .popular_list .card_item img {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     height: 100%;
   }
 
-  .popular_list .popular_list_left .card_item p {
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 40px;
-    transform: rotate(-90deg);
-    text-transform: uppercase;
-    position: absolute;
-    top: 45%;
-    left: -55%;
-  }
-
-  .popular_list .popular_list_right {
-    width: 50%;
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 12px;
-    row-gap: 12px;
-  }
-
-  .popular_list .popular_list_right .card_item {
+  .popular_list .card_item {
     position: relative;
+    overflow: hidden;
   }
 
-  .popular_list .popular_list_right .card_item img {
-    width: 100%;
-    height: 100%;
+  .popular_list .card_item:first-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
   }
 
   .card_item:hover {
@@ -460,9 +450,111 @@ const ContentHomeStyled = styled.div`
   }
 `;
 
+const ResponsiveHomeStyled = styled.div`
+  @media (max-width: 575.98px) {
+    .body_content {
+      display: none;
+    }
+
+    .right_header {
+      display: none;
+    }
+
+    .brand img:nth-child(n + 3) {
+      display: none;
+    }
+
+    .body_footer_main{
+      display: none;
+    }
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+    .container {
+      padding: 10px;
+    }
+
+    .brand {
+      justify-content: space-around;
+    }
+
+    .brand img:nth-child(n + 4) {
+      display: none;
+    }
+
+    .popular_list_container p{
+      font-size: 20px;
+      font-weight: 600;
+      transform: unset;
+      position: unset;
+    }
+
+    .popular_list{
+      grid-template-columns: auto auto;
+      height: auto;
+    }
+
+    
+
+    .newsletter .body_newsletter {
+      grid-template-columns: repeat(2,50%) !important;
+    }
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @media (max-width: 991.98px) {
+    .container {
+      width: 100% !important;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .header_content {
+      padding: 10px;
+    }
+
+    .body_content {
+      justify-content: center;
+    }
+
+    .body_content .body_content_left {
+      width: auto;
+      padding: 20px;
+    }
+
+    .body_content_right {
+      display: none;
+    }
+
+    .brand img:nth-child(n + 5) {
+      display: none;
+    }
+
+    .newsletter .body_newsletter {
+      grid-template-columns: auto auto auto;
+    }
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @media (max-width: 1199.98px) {
+    .container {
+      width: 1080px;
+    }
+
+    .furniture_tree {
+      display: none;
+    }
+  }
+
+  // X-Large devices (large desktops, less than 1400px)
+  @media (max-width: 1399.98px) {
+  }
+`;
+
 const Home = () => {
   return (
-    <>
+    <ResponsiveHomeStyled>
       <ContentHeaderHomeStyled>
         <div className="container">
           <div className="header_content">
@@ -497,8 +589,9 @@ const Home = () => {
             <img src={brand4} alt="" />
             <img src={brand5} alt="" />
           </div>
-          <div className="popular_list">
-            <div className="popular_list_left">
+          <div className="popular_list_container">
+            <p>Explore new and popular styles</p>
+            <div className="popular_list">
               <div className="card_item">
                 <img src={popular_main} alt="" />
                 <div className="info">
@@ -506,8 +599,6 @@ const Home = () => {
                   <span>103 Product</span>
                 </div>
               </div>
-            </div>
-            <div className="popular_list_right">
               <div className="card_item">
                 <img src={popular1} alt="" />
                 <div className="info">
@@ -695,8 +786,7 @@ const Home = () => {
       </ContentHomeStyled>
       <Footer></Footer>
       <ScrollToTop></ScrollToTop>
-    </>
+    </ResponsiveHomeStyled>
   );
 };
-
 export default Home;

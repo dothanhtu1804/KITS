@@ -9,11 +9,13 @@ const ProductCartStyled = styled.div`
 
   .header_card{
     position: relative;
+    height: 75%;
   }
 
   .header_card .img_product {
     width: 100%;
-    max-height: 333px;
+    height: 100%;
+    object-fit: cover;
   }
 
   .header_card .action {
