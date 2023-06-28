@@ -3,12 +3,17 @@ import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import Sidebar from "components/sidebar/Sidebar";
 import Card_banner from "components/card_banner";
+import ListCreator from "components/listCreator";
+import TrendingContent from "components/trendingContent";
 
 const LayoutStyled = styled.div`
   display: flex;
   background-color: #caeae6;
+  .left{
+    width: 18%;
+  }
   .right {
-    width: 100%;
+    width: 82%;
     padding: 32px;
   }
 
@@ -47,6 +52,13 @@ const LayoutStyled = styled.div`
     color: #5429ff;
     border-radius: 30px;
   }
+
+  .list_author_creator{
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 15px;
+  }
 `;
 
 const ContentStyled = styled.div`
@@ -64,31 +76,39 @@ const SideBarStyled = styled.div`
 const PrimaryLayout = ({ children }) => {
   return (
     <LayoutStyled>
+      <div className="left"></div>
       <Sidebar />
       <div className="right">
         <Header />
         <Card_banner></Card_banner>
-        <div id="detail_page">
-          <div className="list_card_video">
-            <div className="header_list">
-              <h3>Trending Auctions</h3>
-              <div className="category">
-                <div className="category-item">
-                  <NavLink to={"/"}>Art</NavLink>
-                </div>
-                <div className="category-item">
-                  <NavLink to={"/"}>Music</NavLink>
-                </div>
-                <div className="category-item">
-                  <NavLink to={"/"}>Collectibles</NavLink>
-                </div>
-                <div className="category-item">
-                  <NavLink to={"/"}>Utility</NavLink>
+        <div className="container_detail_page">
+          <div id="detail_page">
+            <div className="list_card_video">
+              <div className="header_list">
+                <h3>Trending Auctions</h3>
+                <div className="category">
+                  <div className="category-item">
+                    <NavLink to={"/"}>Art</NavLink>
+                  </div>
+                  <div className="category-item">
+                    <NavLink to={"/"}>Music</NavLink>
+                  </div>
+                  <div className="category-item">
+                    <NavLink to={"/"}>Collectibles</NavLink>
+                  </div>
+                  <div className="category-item">
+                    <NavLink to={"/"}>Utility</NavLink>
+                  </div>
                 </div>
               </div>
+              <div className="list_creator">
+                <TrendingContent></TrendingContent>
+              </div>
+            </div>
+            <div className="list_author_creator">
+              <ListCreator></ListCreator>
             </div>
           </div>
-          <div className="list_creator"></div>
         </div>
       </div>
     </LayoutStyled>

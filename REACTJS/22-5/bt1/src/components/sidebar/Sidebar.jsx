@@ -9,6 +9,7 @@ const SidebarStyled = styled.div`
   height: auto;
   background-color: #ffffff;
   padding: 32px;
+  position: fixed;
 
   .header_sidebar {
     display: flex;
@@ -37,7 +38,7 @@ const SidebarStyled = styled.div`
   }
 
   .body_sidebar{
-    margin-bottom: 95px;
+    margin-bottom: 50px;
   }
 `;
 const Sidebar = () => {

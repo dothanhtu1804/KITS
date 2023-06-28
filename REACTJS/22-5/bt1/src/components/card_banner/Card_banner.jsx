@@ -10,36 +10,34 @@ const Card_bannerStyled = styled.div`
   grid-template-columns: 65% 35%;
   height: 354px;
   margin-bottom: 32px;
-  
-  *.carousel{
+
+  *.carousel {
     margin: 0;
     padding: 0;
   }
 
-
-
   .statistic {
-    width: 350px;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-left: 15px;
   }
 
-  .carousel-item img{
+  .carousel-item img {
     height: 354px;
     object-fit: cover;
     border-radius: 12px;
   }
 
-  .carousel-caption{
+  .carousel-caption {
     position: absolute;
     top: 77px;
     left: 60px;
     text-align: unset;
   }
 
-  .carousel-caption h3{
+  .carousel-caption h3 {
     font-size: 54px;
     font-weight: 700;
     line-height: 65px;
@@ -56,28 +54,66 @@ const Card_banner = () => {
           <img className="d-block w-100" src={banner1} alt="First slide" />
           <Carousel.Caption>
             <h3>Discover, Create and Sell Your Own NFT.</h3>
-            <Button width={"128px"} height={"46px"} mr={"10px"} content={"Discover"}></Button>
-            <Button width={"128px"} height={"46px"} bgColor={"none"} boderColor={"#FFFFFF"} textColor={"#FFFFFF"} content={"Create"}></Button>
+            <Button
+              width={"128px"}
+              height={"46px"}
+              mr={"10px"}
+              content={"Discover"}
+            ></Button>
+            <Button
+              width={"128px"}
+              height={"46px"}
+              bgColor={"none"}
+              boderColor={"#FFFFFF"}
+              textColor={"#FFFFFF"}
+              content={"Create"}
+            ></Button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={banner1} alt="First slide" />
           <Carousel.Caption>
             <h3>Discover, Create and Sell Your Own NFT.</h3>
-            <Button width={"128px"} height={"46px"} mr={"10px"} content={"Discover"}></Button>
-            <Button width={"128px"} height={"46px"} bgColor={"none"} boderColor={"#FFFFFF"} textColor={"#FFFFFF"} content={"Create"}></Button>
+            <Button
+              width={"128px"}
+              height={"46px"}
+              mr={"10px"}
+              content={"Discover"}
+            ></Button>
+            <Button
+              width={"128px"}
+              height={"46px"}
+              bgColor={"none"}
+              boderColor={"#FFFFFF"}
+              textColor={"#FFFFFF"}
+              content={"Create"}
+            ></Button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={banner1} alt="First slide" />
           <Carousel.Caption>
             <h3>Discover, Create and Sell Your Own NFT.</h3>
-            <Button width={"128px"} height={"46px"} mr={"10px"} content={"Discover"}></Button>
-            <Button width={"128px"} height={"46px"} bgColor={"none"} boderColor={"#FFFFFF"} textColor={"#FFFFFF"} content={"Create"}></Button>
+            <Button
+              width={"128px"}
+              height={"46px"}
+              mr={"10px"}
+              content={"Discover"}
+            ></Button>
+            <Button
+              width={"128px"}
+              height={"46px"}
+              bgColor={"none"}
+              boderColor={"#FFFFFF"}
+              textColor={"#FFFFFF"}
+              content={"Create"}
+            ></Button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
       <div className="statistic">
+        <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
+        <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
         <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
         <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
         <Card title={"Revenue"} amount="5.00" percent={12.3}></Card>
